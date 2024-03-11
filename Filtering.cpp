@@ -1,3 +1,5 @@
+// Spathoulas Dimitris
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -48,14 +50,12 @@ int main() {
 		for (i=0;i<N;i++) {
 				for (j=0;j<M;j++) {
 					trans = (dd_1[i]/dd_2[j]);
-					if ( (n2_min/trans) < n1_max ) {// exo mperdeytei edo ligo 
+					if ( (n2_min/trans) < n1_max ) {
 						a = fmin(((1.5)*(dd_1[i]+dd_2[j])),fmax( ((1.5*dd_2[j])+(dd_1[i]/2.0)),dd_1[i]));
 						if ( (a_par_min<a) && (a_par_max>a) ) {
 							L = (   (a*2.0) +  (M_PI*((dd_1[i]+dd_2[j])/2.0)) + ( (1.0/a)*pow((dd_1[i]-dd_2[j])/2.0,2.0) ) );
 							if (L < L_max) {
-								f = M_PI - (2.0*asin((dd_1[i]-dd_2[j])/(2.0*a))); // rads
-								//f = ((f*M_PI)/180.0);
-								//printf("\n%3.3lf m || %3.3lf m || a = %3.4lf m || trans = %3.3lf || L = %4.4lf m || f = %4.4lf rad",dd_1[i],dd_2[j],a,trans,L,f);
+								f = M_PI - (2.0*asin((dd_1[i]-dd_2[j])/(2.0*a)));
 								ang_vel=((2.0*M_PI)*(n2_min/(trans*60.0)));
 								velocity =ang_vel*(dd_1[i]/2.0);
 								printf("  vel = %3.3lf ",velocity);
